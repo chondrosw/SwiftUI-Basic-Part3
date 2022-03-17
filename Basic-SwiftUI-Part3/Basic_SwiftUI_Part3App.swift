@@ -9,12 +9,22 @@ import SwiftUI
 
 @main
 struct Basic_SwiftUI_Part3App: App {
-    let persistenceController = PersistenceController.shared
+     let user = UserManagerViewModel()
 
+    init() {
+        user.load()
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            RegisterView().environmentObject(user)
+               
         }
+    }
+}
+
+struct Basic_SwiftUI_Part3App_Previews:PreviewProvider{
+    static let user = UserManagerViewModel(name: "Chondro")
+    static var previews: some View{
+        RegisterView().environmentObject(user)
     }
 }
