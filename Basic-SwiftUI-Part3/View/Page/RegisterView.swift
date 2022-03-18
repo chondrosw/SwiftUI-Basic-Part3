@@ -64,6 +64,13 @@ struct RegisterView_Previews: PreviewProvider {
 }
 extension RegisterView{
     func registerUser(){
-        usermanager.persistProfile()
+        if usermanager.settings.rememberUser{
+            usermanager.persistProfile()
+        }else{
+            usermanager.clear()
+        }
+        
+        usermanager.persistSettings()
+        usermanager.setRegistered()
     }
 }
