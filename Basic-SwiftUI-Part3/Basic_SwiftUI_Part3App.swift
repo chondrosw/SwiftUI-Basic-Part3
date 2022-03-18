@@ -16,7 +16,7 @@ struct Basic_SwiftUI_Part3App: App {
     }
     var body: some Scene {
         WindowGroup {
-            RegisterView().environmentObject(user)
+            StarterView().environmentObject(user)
                
         }
     }

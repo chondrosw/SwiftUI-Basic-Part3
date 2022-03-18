@@ -11,7 +11,7 @@ struct StarterView: View {
     @EnvironmentObject var userViewModel:UserManagerViewModel
     var body: some View {
         if userViewModel.isRegistered{
-            
+            WelcomeView()
         }else{
             RegisterView()
         }

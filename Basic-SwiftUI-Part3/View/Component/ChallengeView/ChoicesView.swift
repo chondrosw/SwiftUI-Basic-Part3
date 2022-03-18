@@ -41,7 +41,19 @@ extension ChoicesView{
             title: Text("Congratulations"),
             message: Text("The answer is correct"),
             dismissButton: dismissButton)
+            return alert
+        }else{
+            let dismissButton = Alert.Button.default(Text("OK")) {
+                    isChallengeResultAlertDisplayed = false
+                  }
+            alert = Alert(
+                    title: Text("Oh no!"),
+                    message: Text("Your answer is not correct!"),
+                    dismissButton: dismissButton
+                  )
+            return alert
         }
+        
     }
     func checkAnswer(at index:Int)->Bool{
         let answer = challengeTest.answers[index]
